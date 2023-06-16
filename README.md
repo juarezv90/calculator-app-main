@@ -23,8 +23,8 @@ Simple calculator made using HTML, SCSS and Javascript
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Git Repository](https://github.com/juarezv90/calculator-app-main)
+- Live Site URL: [Live Calculator](https://juarezv90.github.io/calculator-app-main/)
 
 ## My process
 
