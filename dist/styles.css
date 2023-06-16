@@ -1,0 +1,265 @@
+:root.theme {
+  --main-bg:hsl(222, 26%, 31%);
+  --toggle-keypad-bg:hsl(223, 31%, 20%);
+  --screen-bg:hsl(224, 36%, 15%);
+  --key-bg:hsl(225, 21%, 49%);
+  --key-shadow:hsl(224, 28%, 35%);
+  --second-key-bg-toggle:hsl(6, 63%, 50%);
+  --second-key-shadow:hsl(6, 70%, 34%);
+  --third-key-bg:hsl(30, 25%, 89%);
+  --third-key-shadow:hsl(28, 16%, 65%);
+  --text-color-one:hsl(221, 14%, 31%);
+  --text-color-two:hsl(0, 0%, 100%);
+}
+
+:root.theme2 {
+  --main-bg:hsl(0, 0%, 90%);
+  --toggle-keypad-bg:hsl(0, 5%, 81%);
+  --screen-bg:hsl(0, 0%, 93%);
+  --key-bg:hsl(185, 42%, 37%);
+  --key-shadow:hsl(185, 58%, 25%);
+  --second-key-bg-toggle:hsl(25, 98%, 40%);
+  --second-key-shadow:hsl(25, 99%, 27%);
+  --third-key-bg:hsl(45, 7%, 89%);
+  --third-key-shadow:hsl(35, 11%, 61%);
+  --text-color-two:hsl(60, 10%, 19%);
+  --text-color-one:hsl(0, 0%, 100%);
+}
+
+:root.theme3 {
+  --main-bg:hsl(268, 75%, 9%);
+  --toggle-keypad-bg:hsl(268, 71%, 12%);
+  --screen-bg:hsl(268, 71%, 12%);
+  --key-bg:hsl(281, 89%, 26%);
+  --key-shadow:hsl(285, 91%, 52%);
+  --second-key-bg-toggle:hsl(176, 100%, 44%);
+  --second-key-shadow:hsl(177, 92%, 70%);
+  --third-key-bg:hsl(268, 47%, 21%);
+  --third-key-shadow:hsl(290, 70%, 36%);
+  --text-color-one:hsl(52, 100%, 62%);
+  --text-color-three:hsl(198, 20%, 13%);
+  --text-color-two:hsl(0, 0%, 100%);
+}
+
+html {
+  font-size: 16px;
+  font-family: "League Spartan";
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--main-bg);
+}
+
+#container {
+  width: 375px;
+  max-width: 100% px;
+}
+@media (min-width: 800px) {
+  #container {
+    position: absolute;
+    width: 544px;
+    top: 90px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+
+#header {
+  width: 326px;
+  margin: 30px auto;
+  display: flex;
+  color: var(--text-color-two);
+}
+@media (min-width: 800px) {
+  #header {
+    width: 100%;
+  }
+}
+#header h1 {
+  display: inline-block;
+  margin-right: auto;
+  align-items: center;
+}
+#header .right {
+  display: flex;
+  align-items: end;
+}
+#header .right p {
+  margin-right: 26px;
+  text-transform: uppercase;
+}
+#header .toggle {
+  position: relative;
+  width: 70px;
+  height: 26.5px;
+  background-color: var(--toggle-keypad-bg);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 5px;
+  border-radius: 20px;
+}
+#header .toggle .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transition: all 0.4s ease-in-out;
+}
+#header .toggle .slider::after {
+  content: "";
+  position: absolute;
+  left: 5.5px;
+  bottom: 6px;
+  width: 15px;
+  height: 15px;
+  border-radius: 20px;
+  background-color: var(--second-key-bg-toggle);
+  transition: all 0.4s ease-in-out;
+  z-index: 20;
+}
+#header .toggle input {
+  z-index: 1;
+  position: relative;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}
+#header .toggle #theme1:checked ~ .slider::after {
+  transform: translateX(0);
+}
+#header .toggle #theme1:after {
+  content: "1";
+  position: absolute;
+  font-weight: 700;
+  top: -50%;
+  left: 50%;
+  color: var(--text-color-two);
+  transform: translateX(-50%) translateY(-100%);
+}
+#header .toggle #theme2:checked ~ .slider::after {
+  transform: translateX(22.5px);
+}
+#header .toggle #theme2:after {
+  content: "2";
+  position: absolute;
+  font-weight: 700;
+  top: -50%;
+  left: 50%;
+  color: var(--text-color-two);
+  transform: translateX(-50%) translateY(-100%);
+}
+#header .toggle #theme3:checked ~ .slider::after {
+  transform: translateX(45px);
+}
+#header .toggle #theme3:after {
+  content: "3";
+  position: absolute;
+  font-weight: 700;
+  top: -50%;
+  left: 50%;
+  color: var(--text-color-two);
+  transform: translateX(-50%) translateY(-100%);
+}
+
+#screen {
+  background-color: var(--screen-bg);
+  width: 326px;
+  height: 88px;
+  margin: 0 auto;
+  border-radius: 15px;
+  padding: 24px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  color: var(--text-color-two);
+  font-size: 2rem;
+  font-weight: 700;
+}
+@media (min-width: 800px) {
+  #screen {
+    width: 100%;
+    height: 128px;
+    font-size: 2.62rem;
+  }
+}
+
+#keypad {
+  background-color: var(--toggle-keypad-bg);
+  width: 326px;
+  height: 422px;
+  margin: 24px auto;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  place-items: center;
+  font-size: 2rem;
+  font-weight: 700;
+  gap: 14px;
+  padding: 24px;
+}
+@media (min-width: 800px) {
+  #keypad {
+    width: 100%;
+    height: 448px;
+    gap: 24px;
+    padding: 32px;
+  }
+}
+#keypad .keys {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--third-key-bg);
+  border-radius: 10px;
+  box-shadow: inset 0px -4px var(--third-key-shadow);
+  color: var(--text-color-one);
+  overflow: hidden;
+  cursor: pointer;
+}
+#keypad .keys::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+}
+#keypad .keys:hover::before {
+  opacity: 0.5;
+}
+#keypad #reset,
+#keypad #del {
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  background-color: var(--key-bg);
+  box-shadow: inset 0px -4px var(--key-shadow);
+  color: var(--text-color-two);
+}
+#keypad #reset {
+  grid-column: 1/3;
+}
+#keypad #equals {
+  grid-column: 3/5;
+  background-color: var(--second-key-bg-toggle);
+  box-shadow: inset 0px -4px var(--second-key-shadow);
+  color: var(--text-color-two);
+}/*# sourceMappingURL=styles.css.map */

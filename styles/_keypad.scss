@@ -1,0 +1,72 @@
+#keypad {
+  background-color: color($toggle-keypad-bg);
+  width: 326px;
+  height: 422px;
+  margin: 24px auto;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  place-items: center;
+  font-size: 2rem;
+  font-weight: 700;
+  gap: 14px;
+  padding: 24px;
+
+  @include desktop{
+    width: 100%;
+    height: 448px;
+    gap:24px;
+    padding: 32px;
+  }
+
+  .keys {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: color($third-key-bg);
+    border-radius: 10px;
+    box-shadow: inset 0px -4px color($third-key-shadow);
+    color: color($text-color-one);
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .keys::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 0;
+    transition: all .4s ease-in-out;
+  }
+
+  .keys:hover::before {
+    opacity: .5;
+  }
+
+  #reset,
+  #del {
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    background-color: color($key-bg);
+    box-shadow: inset 0px -4px color($key-shadow);
+    color: color($text-color-two);
+  }
+
+  #reset {
+    grid-column: 1/3;
+  }
+
+  #equals {
+    grid-column: 3/5;
+    background-color: color($second-key-bg-toggle);
+    box-shadow: inset 0px -4px color($second-key-shadow);
+    color: color($text-color-two);
+  }
+}

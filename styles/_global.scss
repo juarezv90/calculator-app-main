@@ -1,0 +1,28 @@
+html {
+  font-size: 16px;
+  font-family: "League Spartan";
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: color($main-bg);
+}
+
+#container {
+  width: 375px;
+  max-width: 100%px;
+  @include desktop {
+    position: absolute;
+    width: 544px;
+    top: 90px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}

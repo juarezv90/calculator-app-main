@@ -1,0 +1,17 @@
+@each $name, $colors in $themes {
+  :root.#{$name} {
+      @each $key, $value in $colors {
+         --#{$key}:#{$value};
+      }
+  }
+}
+
+@function color($color) {
+  @return var(--#{$color});
+}
+
+@mixin desktop {
+  @media (min-width: 800px) {
+    @content;
+  }
+}
