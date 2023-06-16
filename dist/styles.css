@@ -8,8 +8,10 @@
   --second-key-shadow:hsl(6, 70%, 34%);
   --third-key-bg:hsl(30, 25%, 89%);
   --third-key-shadow:hsl(28, 16%, 65%);
+  --equal-key:hsl(0, 0%, 100%);
   --text-color-one:hsl(221, 14%, 31%);
   --text-color-two:hsl(0, 0%, 100%);
+  --header-text:hsl(0, 0%, 100%);
 }
 
 :root.theme2 {
@@ -22,8 +24,10 @@
   --second-key-shadow:hsl(25, 99%, 27%);
   --third-key-bg:hsl(45, 7%, 89%);
   --third-key-shadow:hsl(35, 11%, 61%);
-  --text-color-two:hsl(60, 10%, 19%);
-  --text-color-one:hsl(0, 0%, 100%);
+  --equal-key:hsl(0, 0%, 100%);
+  --text-color-one:hsl(60, 10%, 19%);
+  --text-color-two:hsl(0, 0%, 100%);
+  --header-text:hsl(60, 10%, 19%);
 }
 
 :root.theme3 {
@@ -36,9 +40,11 @@
   --second-key-shadow:hsl(177, 92%, 70%);
   --third-key-bg:hsl(268, 47%, 21%);
   --third-key-shadow:hsl(290, 70%, 36%);
+  --equal-key:hsl(198, 20%, 13%);
   --text-color-one:hsl(52, 100%, 62%);
   --text-color-three:hsl(198, 20%, 13%);
   --text-color-two:hsl(0, 0%, 100%);
+  --header-text:hsl(52, 100%, 62%);
 }
 
 html {
@@ -56,11 +62,15 @@ html {
 
 body {
   background-color: var(--main-bg);
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  place-items: center;
+  
 }
 
 #container {
   width: 375px;
-  max-width: 100% px;
 }
 @media (min-width: 800px) {
   #container {
@@ -76,7 +86,7 @@ body {
   width: 326px;
   margin: 30px auto;
   display: flex;
-  color: var(--text-color-two);
+  color: var(--header-text);
 }
 @media (min-width: 800px) {
   #header {
@@ -104,7 +114,6 @@ body {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  gap: 5px;
   border-radius: 20px;
 }
 #header .toggle .slider {
@@ -115,7 +124,7 @@ body {
   right: 0;
   transition: all 0.4s ease-in-out;
 }
-#header .toggle .slider::after {
+#header .toggle .slider::after, #header .toggle .slider::before {
   content: "";
   position: absolute;
   left: 5.5px;
@@ -126,6 +135,16 @@ body {
   background-color: var(--second-key-bg-toggle);
   transition: all 0.4s ease-in-out;
   z-index: 20;
+  cursor: pointer;
+}
+#header .toggle .slider::before {
+  background-color: hsl(0, 0%, 100%);
+  z-index: 21;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+#header .toggle .slider:hover:before {
+  opacity: 0.5;
 }
 #header .toggle input {
   z-index: 1;
@@ -133,11 +152,11 @@ body {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  width: 1rem;
-  height: 1rem;
+  width: 100%;
+  height: 100%;
   cursor: pointer;
 }
-#header .toggle #theme1:checked ~ .slider::after {
+#header .toggle #theme1:checked ~ .slider::after, #header .toggle #theme1:checked ~ .slider::before {
   transform: translateX(0);
 }
 #header .toggle #theme1:after {
@@ -146,10 +165,10 @@ body {
   font-weight: 700;
   top: -50%;
   left: 50%;
-  color: var(--text-color-two);
+  color: var(--header-text);
   transform: translateX(-50%) translateY(-100%);
 }
-#header .toggle #theme2:checked ~ .slider::after {
+#header .toggle #theme2:checked ~ .slider::after, #header .toggle #theme2:checked ~ .slider::before {
   transform: translateX(22.5px);
 }
 #header .toggle #theme2:after {
@@ -158,10 +177,10 @@ body {
   font-weight: 700;
   top: -50%;
   left: 50%;
-  color: var(--text-color-two);
+  color: var(--header-text);
   transform: translateX(-50%) translateY(-100%);
 }
-#header .toggle #theme3:checked ~ .slider::after {
+#header .toggle #theme3:checked ~ .slider::after, #header .toggle #theme3:checked ~ .slider::before {
   transform: translateX(45px);
 }
 #header .toggle #theme3:after {
@@ -170,7 +189,7 @@ body {
   font-weight: 700;
   top: -50%;
   left: 50%;
-  color: var(--text-color-two);
+  color: var(--header-text);
   transform: translateX(-50%) translateY(-100%);
 }
 
@@ -184,7 +203,7 @@ body {
   display: flex;
   justify-content: end;
   align-items: center;
-  color: var(--text-color-two);
+  color: var(--header-text);
   font-size: 2rem;
   font-weight: 700;
 }
@@ -261,5 +280,5 @@ body {
   grid-column: 3/5;
   background-color: var(--second-key-bg-toggle);
   box-shadow: inset 0px -4px var(--second-key-shadow);
-  color: var(--text-color-two);
+  color: var(--equal-key);
 }/*# sourceMappingURL=styles.css.map */

@@ -12,9 +12,11 @@ $themes: (
     second-key-shadow: hsl(6, 70%, 34%),
     third-key-bg: hsl(30, 25%, 89%),
     third-key-shadow: hsl(28, 16%, 65%),
+    equal-key: hsl(0, 0%, 100%),
     //text colors
     text-color-one: hsl(221, 14%, 31%),
     text-color-two: hsl(0, 0%, 100%),
+    header-text: hsl(0, 0%, 100%),
   ),
 
   // ### Theme 2
@@ -31,9 +33,11 @@ $themes: (
       second-key-shadow: hsl(25, 99%, 27%),
       third-key-bg: hsl(45, 7%, 89%),
       third-key-shadow: hsl(35, 11%, 61%),
+      equal-key: hsl(0, 0%, 100%),
       //text colors
-      text-color-two: hsl(60, 10%, 19%),
-      text-color-one: hsl(0, 0%, 100%),
+      text-color-one: hsl(60, 10%, 19%),
+      text-color-two: hsl(0, 0%, 100%),
+      header-text: hsl(60, 10%, 19%),
     ),
 
   // ### Theme 3
@@ -50,10 +54,12 @@ $themes: (
       second-key-shadow: hsl(177, 92%, 70%),
       third-key-bg: hsl(268, 47%, 21%),
       third-key-shadow: hsl(290, 70%, 36%),
+      equal-key: hsl(198, 20%, 13%),
       //text colors
       text-color-one: hsl(52, 100%, 62%),
       text-color-three: hsl(198, 20%, 13%),
       text-color-two: hsl(0, 0%, 100%),
+      header-text: hsl(52, 100%, 62%),
     ),
 );
 
@@ -67,7 +73,9 @@ $second-key-bg-toggle: second-key-bg-toggle ;
 $second-key-shadow: second-key-shadow ;
 $third-key-bg: third-key-bg;
 $third-key-shadow: third-key-shadow;
+$equal-key: equal-key;
 //text colors
 $text-color-one: text-color-one;
 $text-color-two: text-color-two;
 $text-color-three: text-color-three;
+$text-header-color: header-text;
