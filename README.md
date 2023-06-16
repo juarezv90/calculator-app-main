@@ -19,7 +19,7 @@ Simple calculator made using HTML, SCSS and Javascript
 
 ### Screenshot
 
-![ScreenShot](./screenshot.png)
+![ScreenShot](./images/screenshot.png)
 
 ### Links
 
