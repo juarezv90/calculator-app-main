@@ -21,10 +21,10 @@ const numberClick = (element) => {
   }
   if ((!isNaN(parseInt(element)) || element == ".") && computation == null) {
     screen.innerHTML = screen.innerHTML + element;
+    inputOne = screen.innerHTML;
   } else {
-    inputTwo = inputTwo.toString() + element;
-
-    console.log(inputTwo);
+    screen.innerHTML = screen.innerHTML + element;
+    inputTwo = screen.innerHTML;
   }
 };
 
@@ -71,4 +71,16 @@ const handleEqual = () => {
 const handleComp = (element) => {
   computation = element;
   inputOne = parseFloat(screen.innerHTML);
+  screen.innerHTML = 0;
 };
+
+const handleDelete = () => {
+  console.log(computation);
+  if(computation == null) {
+    inputOne = inputOne.substring(0, inputOne.length - 1);
+    screen.innerHTML = inputOne;
+  } else {
+    inputTwo = inputTwo.substring(0, inputTwo.length -1);
+    screen.innerHTML = inputTwo;
+  }
+}

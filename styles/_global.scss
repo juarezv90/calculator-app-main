@@ -13,6 +13,9 @@ html {
 
 body {
   background-color: color($main-bg);
+  display: grid;
+  place-items: center;
+  padding-top: 24px;
 }
 
 #container {
