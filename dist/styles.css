@@ -193,6 +193,7 @@ body {
 }
 
 #screen {
+  position: relative;
   background-color: var(--screen-bg);
   width: 326px;
   height: 88px;
@@ -205,6 +206,22 @@ body {
   color: var(--header-text);
   font-size: 2rem;
   font-weight: 700;
+}
+#screen::before {
+  content: attr(data-values);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: text-color-three;
+  width: 100%;
+  height: 100%;
+  z-index: 30;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  font-weight: 200;
 }
 @media (min-width: 600px) {
   #screen {

@@ -11,13 +11,11 @@ let inputOne = 0;
 let inputTwo = 0;
 let computation = null;
 let needReset = false;
+let answer;
 
 const numberClick = (element) => {
   if (needReset) {
     reset();
-  }
-  if (screen.innerHTML == 0) {
-    screen.innerHTML = "";
   }
   if ((!isNaN(parseInt(element)) || element == ".") && computation == null) {
     screen.innerHTML = screen.innerHTML + element;
@@ -33,8 +31,9 @@ const reset = () => {
   inputOne = 0;
   inputTwo = 0;
   computation = null;
-  answer = 0;
+  answer = null;
   needReset = false;
+  screen.dataset.values = "";
 };
 
 for (const key of keys) {
@@ -46,6 +45,7 @@ for (const key of keys) {
 const handleEqual = () => {
   inputTwo = parseFloat(inputTwo);
   needReset = true;
+  handleScreenDisplay(true);
   switch (computation) {
     case "+":
       answer = inputOne + inputTwo;
@@ -69,18 +69,34 @@ const handleEqual = () => {
 };
 
 const handleComp = (element) => {
+  if (computation == null) {
+    inputOne = parseFloat(screen.innerHTML);
+  }
+  if (answer != null) {
+    inputOne = answer;
+    needReset = false;
+  }
   computation = element;
-  inputOne = parseFloat(screen.innerHTML);
-  screen.innerHTML = 0;
+  screen.innerHTML = "";
+  handleScreenDisplay();
 };
 
 const handleDelete = () => {
-  console.log(computation);
-  if(computation == null) {
+  if (computation == null && inputOne.length > 0) {
     inputOne = inputOne.substring(0, inputOne.length - 1);
     screen.innerHTML = inputOne;
-  } else {
-    inputTwo = inputTwo.substring(0, inputTwo.length -1);
+  } else if (inputTwo.length > 0) {
+    inputTwo = inputTwo.substring(0, inputTwo.length - 1);
     screen.innerHTML = inputTwo;
   }
-}
+};
+
+const handleScreenDisplay = (equal = false) => {
+  if (computation && !equal) {
+    screen.dataset.values = inputOne.toString() + " " + computation;
+  }
+  if (computation && equal) {
+    screen.dataset.values =
+      inputOne.toString() + computation + inputTwo.toString();
+  }
+};
