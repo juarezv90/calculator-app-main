@@ -97,6 +97,6 @@ const handleScreenDisplay = (equal = false) => {
   }
   if (computation && equal) {
     screen.dataset.values =
-      inputOne.toString() + computation + inputTwo.toString();
+      inputOne.toString() + " " + computation + " " + inputTwo.toString();
   }
 };
