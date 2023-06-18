@@ -18,9 +18,15 @@ const numberClick = (element) => {
     reset();
   }
   if ((!isNaN(parseInt(element)) || element == ".") && computation == null) {
+    if(inputOne.toString().includes('.') && element == ".") {
+      return;
+    }
     screen.innerHTML = screen.innerHTML + element;
     inputOne = screen.innerHTML;
   } else {
+    if(inputTwo.toString().includes('.') && element == ".") {
+      return;
+    }
     screen.innerHTML = screen.innerHTML + element;
     inputTwo = screen.innerHTML;
   }
@@ -43,6 +49,9 @@ for (const key of keys) {
 }
 
 const handleEqual = () => {
+  if(inputTwo == '.') {
+    return;
+  }
   inputTwo = parseFloat(inputTwo);
   needReset = true;
   handleScreenDisplay(true);
